@@ -1,0 +1,37 @@
+<div class='container-fluid' ng-controller='echo'>
+    <div class="btn-group" role="group" aria-label="..." style="position:fixed;right:15px;top:3px;z-index:3">
+        <a role="button" class="btn btn-default" ng-class="{'active': autoRefreshSwitch}" ng-click="autoRefreshSwitch=!autoRefreshSwitch">Auto</a>
+        <a role="button" class="btn btn-default" ng-disabled="{{ onRefresh }}" ng-click="getMessages()">
+            <i class="fa fa-refresh"></i> Refresh
+        </a>
+    </div>
+
+    <div style="position:fixed;width:98%;">
+        <table class="table table-striped">
+            <thead style="background-color:white;">
+                <tr>
+                    <th style="width: 10%">IP</th>
+                    <th style="width: 20%">Time</th>
+                    <th style="width: 70%">body</th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th style="width: 10%">IP</th>
+                <th style="width: 20%">Time</th>
+                <th style="width: 70%">body</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat='message in messages track by $index'>
+                <td>{{ message.ip }}</td>
+                <td>{{ message.time }}</td>
+                <td><pre class="wrap">{{ message.body }}</pre></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

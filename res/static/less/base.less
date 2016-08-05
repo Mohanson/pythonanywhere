@@ -1,0 +1,68 @@
+@color-dust: rgba(51, 51, 51, 1);
+@color-dust-8: rgba(51, 51, 51, 0.8);
+@color-dust-6: rgba(51, 51, 51, 0.6);
+@color-dust-4: rgba(51, 51, 51, 0.4);
+@color-dust-2: rgba(51, 51, 51, 0.2);
+@color-grass: rgba(52,207,117,1);
+@color-grass-8: rgba(52,207,117,0.8);
+@color-grass-6: rgba(52,207,117,0.6);
+@color-grass-4: rgba(52,207,117,0.4);
+@color-grass-2: rgba(52,207,117,0.2);
+@color-lavender: rgba(207,111,193,1);
+@color-lavender-8: rgba(207,111,193,0.8);
+@color-lavender-6: rgba(207,111,193,0.6);
+@color-lavender-4: rgba(207,111,193,0.4);
+@color-lavender-2: rgba(207,111,193,0.2);
+@color-pure: rgba(255, 255, 255, 1);
+@color-sakura: rgba(255,96,95, 1);
+@color-sakura-8: rgba(255,96,95, 0.8);
+@color-sakura-6: rgba(255,96,95, 0.6);
+@color-sakura-4: rgba(255,96,95, 0.4);
+@color-sakura-2: rgba(255,96,95, 0.2);
+@color-sea: rgba(53,175,186,1);
+@color-sea-8: rgba(53,175,186,0.8);
+@color-sea-6: rgba(53,175,186,0.6);
+@color-sea-4: rgba(53,175,186,0.4);
+@color-sea-2: rgba(53,175,186,0.2);
+.transition(@transition) {
+    -webkit-transition: @transition;
+    -moz-transition: @transition;
+    -o-transition: @transition;
+    transition: @transition;
+}
+.opacity(@opacity) {
+    @opacity-10: @opacity * 10;
+    opacity: @opacity;
+    filter:~  "alpha(opacity=@{opacity-10})";
+}
+.transform(@args) {
+    -moz-transform: @args;
+    -ms-transform: @args;
+    -o-transform: @args;
+    -webkit-transform: @args;
+    transform: @args;
+}
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/Lato/Lato-Light.eot');
+    src: url('../fonts/Lato/Lato-Light.eot?#iefix') format('embedded-opentype'), url('../fonts/Lato/Lato-Light.woff2') format('woff2'), url('../fonts/Lato/Lato-Light.woff') format('woff'), url('../fonts/Lato/Lato-Light.ttf') format('truetype'), url('../fonts/Lato/Lato-Light.svg#Lato-Light') format('svg');
+}
+html {
+    font-family: 'Lato';
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+body {
+    background-color: @color-pure;
+    color: @color-dust-8;
+    font-family: inherit;
+    font-size: 18px;
+    position: relative;
+}
+a {
+    color: @color-sea;
+}
+a,
+button {
+    outline: none !important;
+}

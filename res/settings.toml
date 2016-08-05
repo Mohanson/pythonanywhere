@@ -1,0 +1,36 @@
+#-------------------------------- For Project Info ----------------------------
+[project]
+name = "pythonanywhere"
+version = "0.0.2"
+author = "mohanson"
+url = "https://github.com/mohanson/pythonanywhere"
+
+#-------------------------------- For Utils -----------------------------------
+[utils.log]
+# CRITICAL = 50 ERROR = 40 WARNING = 30 INFO = 20 DEBUG = 10 NOTSET = 0
+level = 10
+
+[utils.log.stream]
+# Fetch https://docs.python.org/3.5/library/datetime.html to get more infomation.
+format = "[%(name)s] %(message)s"
+
+[utils.log.file]
+enable = false
+path = "./rec/logs"
+format = "[%(asctime)s %(filename)s:%(lineno)d %(name)s] %(message)s"
+
+[utils.record]
+path = "./res/records"
+
+#--------------------------------- For plugins --------------------------------
+[tornado]
+debug = true
+# WSGI is an interface between the Web server and the Python application or framework,
+# has been widely accepted. If true, use WSGi application instead of tornado primary application.
+# WSGI is not supported to websocket.
+wsgi = false
+port = 8080
+cookie_secret = "tornado.cookie_secret"
+static_path = "./res/static/"
+# Content type. Option value in ['application/json', 'application/x-www-form-urlencoded']
+content_type = "application/json"
