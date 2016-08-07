@@ -4,13 +4,23 @@ import os
 import os.path
 import sys
 
+os.chdir(os.path.dirname(os.path.abspath(__file__)))
+
 if os.path.exists('./vendor'):
     sys.path.insert(0, os.path.abspath('./vendor'))
 
 import src
 import src.utils.log
+import src.utils.settings
 
-os.chdir(os.path.dirname(os.path.abspath(__file__)))
+try:
+    import setproctitle
+except ImportError:
+    pass
+else:
+    project = src.utils.settings.project
+    setproctitle.setproctitle('python' + ':' + project.name + ':' + project.version)
+
 
 def echo_duration():
     origin = datetime.datetime.utcnow()

@@ -44,7 +44,6 @@ class TimedRotatingFileHandler(logging.handlers.TimedRotatingFileHandler):
         self.setFormatter(Formatter(formats))
         self.setLevel(level)
 
-
 root = logging.getLogger(settings.project.name)
 root.setLevel(settings.utils.log.level)
 root.addHandler(StreamHandler())
@@ -59,3 +58,7 @@ warning = root.warning
 info = root.info
 debug = root.debug
 log = root.log
+
+
+def choose(name):
+    return logging.getLogger(name=settings.project.name + '.' + name)
