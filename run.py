@@ -10,15 +10,15 @@ if os.path.exists('./vendor'):
     sys.path.insert(0, os.path.abspath('./vendor'))
 
 import src
-import src.utils.log
-import src.utils.settings
+import src.log
+import src.settings
 
 try:
     import setproctitle
 except ImportError:
     pass
 else:
-    project = src.utils.settings.project
+    project = src.settings.project
     setproctitle.setproctitle('python' + ':' + project.name + ':' + project.version)
 
 
@@ -32,7 +32,7 @@ def echo_duration():
         minutes = int((duration.seconds - 3600 * hours) / 60)
         seconds = int(duration.seconds - 3600 * hours - minutes * 60)
         msg = 'Shut Down.The program takes {days}D {hours}H {minutes}M {seconds}S'
-        src.utils.log.info(msg.format(days=days, hours=hours, minutes=minutes, seconds=seconds))
+        src.log.info(msg.format(days=days, hours=hours, minutes=minutes, seconds=seconds))
 
     return wrapper
 

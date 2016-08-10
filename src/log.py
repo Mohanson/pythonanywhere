@@ -5,7 +5,7 @@ import os.path
 import sys
 import time
 
-import src.utils.settings as settings
+import src.settings as settings
 
 if settings.utils.log.file.enable and not os.path.exists(settings.utils.log.file.path):
     os.makedirs(settings.utils.log.file.path)

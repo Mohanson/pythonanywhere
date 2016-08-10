@@ -1,8 +1,7 @@
 import os.path
 
-import src.rest.apihandler
-import src.rest.routeset
-import src.utils.settings as settings
+import src.service.apihandler
+import src.service.routeset
 
 routes = [
     r'/',
@@ -11,7 +10,7 @@ routes = [
 ]
 
 
-class View(src.rest.apihandler.APIHandler):
+class View(src.service.apihandler.APIHandler):
 
     with open('./res/static/html/base.html') as fp:
         context = fp.read()
@@ -20,4 +19,4 @@ class View(src.rest.apihandler.APIHandler):
         self.write(self.context)
 
 for route in routes:
-    src.rest.routeset.bind(route)(View)
+    src.service.routeset.bind(route)(View)

@@ -3,9 +3,9 @@ import json
 
 import tornado.web
 
-import src.rest.error
+import src.service.error
+import src.settings as settings
 import src.utils
-import src.utils.settings as settings
 
 
 class ParamsAdorner:

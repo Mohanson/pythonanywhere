@@ -3,7 +3,7 @@ import os
 import pickle
 import shutil
 
-import src.utils.settings as settings
+import src.settings as settings
 
 if not os.path.exists(settings.utils.record.path):
     os.makedirs(settings.utils.record.path)

@@ -1,5 +1,5 @@
-import src.rest.app
+import src.service.app
 
 
 def main():
-    src.rest.app.run()
+    src.service.app.run()

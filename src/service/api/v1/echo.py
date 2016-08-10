@@ -1,16 +1,15 @@
-# -*- coding: utf-8 -*-
 import datetime
 import json
 
-import src.rest.apihandler
-import src.rest.routeset
-import src.utils.log
-import src.utils.record
+import src.log
+import src.record
+import src.service.apihandler
+import src.service.routeset
 
 
-@src.rest.routeset.bind('/api/v1/echo')
-class Echo(src.rest.apihandler.APIHandler):
-    messages = src.utils.record.get('messages', [])
+@src.service.routeset.bind('/api/v1/echo')
+class Echo(src.service.apihandler.APIHandler):
+    messages = src.record.get('messages', [])
 
     def get(self):
         self.swrite({
@@ -37,10 +36,10 @@ class Echo(src.rest.apihandler.APIHandler):
             'content-type': content_type,
         }
         self.messages.insert(0, message)
-        src.utils.record.set('messages', self.messages)
+        src.record.set('messages', self.messages)
         self.swrite()
 
     def delete(self):
         self.messages.clear()
-        src.utils.record.set('messages', [])
+        src.record.set('messages', [])
         self.swrite()
