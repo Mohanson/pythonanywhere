@@ -1,5 +1,3 @@
-import os.path
-
 import src.service.apihandler
 import src.service.routeset
 

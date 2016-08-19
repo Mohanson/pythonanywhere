@@ -9,7 +9,6 @@ import tornado.wsgi
 import src.log
 import src.service.routeset
 import src.settings
-import src.utils
 
 apis = [
     'src.service.view.view',

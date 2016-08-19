@@ -20,7 +20,7 @@ path = "./rec/logs"
 format = "[%(asctime)s %(filename)s:%(lineno)d %(name)s] %(message)s"
 
 [utils.record]
-path = "./res/records"
+path = "./rec/records"
 
 #--------------------------------- For plugins --------------------------------
 [tornado]

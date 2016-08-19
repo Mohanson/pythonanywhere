@@ -1,9 +1,7 @@
-import functools
 import json
 
 import tornado.web
 
-import src.service.error
 import src.settings as settings
 import src.utils
 

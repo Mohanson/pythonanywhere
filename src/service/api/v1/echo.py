@@ -1,7 +1,6 @@
 import datetime
 import json
 
-import src.log
 import src.record
 import src.service.apihandler
 import src.service.routeset
