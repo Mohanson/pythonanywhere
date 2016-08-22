@@ -7,14 +7,14 @@ import tornado.web
 import tornado.wsgi
 
 import src.log
-import src.service.routeset
+import src.server.routeset
 import src.settings
 
 apis = [
-    'src.service.view.view',
-    'src.service.api.v1.version',
-    'src.service.api.v1.echo',
-    'src.service.api.v1.routes'
+    'src.server.view.view',
+    'src.server.api.v1.version',
+    'src.server.api.v1.echo',
+    'src.server.api.v1.routes'
 ]
 
 
@@ -32,9 +32,9 @@ settings = {
 }
 
 if settings['wsgi']:
-    application = tornado.wsgi.WSGIApplication(src.service.routeset.routeset, **settings)
+    application = tornado.wsgi.WSGIApplication(src.server.routeset.routeset, **settings)
 else:
-    application = tornado.web.Application(src.service.routeset.routeset, **settings)
+    application = tornado.web.Application(src.server.routeset.routeset, **settings)
 
 logging.root.setLevel(logging.DEBUG)
 for name in ['tornado.access', 'tornado.application', 'tornado.general']:
@@ -45,7 +45,7 @@ for name in ['tornado.access', 'tornado.application', 'tornado.general']:
 
 def run():
     src.log.info('Http server started on port %s' % src.settings.tornado.port)
-    for route in src.service.routeset.routeset:
+    for route in src.server.routeset.routeset:
         src.log.info('Route bind ' + route.__str__())
     http_server = tornado.httpserver.HTTPServer(application)
     http_server.listen(src.settings.tornado.port)

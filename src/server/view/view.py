@@ -1,5 +1,5 @@
-import src.service.apihandler
-import src.service.routeset
+import src.server.apihandler
+import src.server.routeset
 
 routes = [
     r'/',
@@ -8,7 +8,7 @@ routes = [
 ]
 
 
-class View(src.service.apihandler.APIHandler):
+class View(src.server.apihandler.APIHandler):
 
     with open('./res/static/html/base.html') as fp:
         context = fp.read()
@@ -17,4 +17,4 @@ class View(src.service.apihandler.APIHandler):
         self.write(self.context)
 
 for route in routes:
-    src.service.routeset.bind(route)(View)
+    src.server.routeset.bind(route)(View)

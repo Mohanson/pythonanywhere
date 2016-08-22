@@ -1,9 +1,9 @@
-import src.service.apihandler
-import src.service.routeset
+import src.server.apihandler
+import src.server.routeset
 
 
-@src.service.routeset.bind('/api/v1/version')
-class Service(src.service.apihandler.APIHandler):
+@src.server.routeset.bind('/api/v1/version')
+class Service(src.server.apihandler.APIHandler):
 
     def get(self):
         self.swrite({

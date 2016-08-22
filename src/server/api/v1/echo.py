@@ -2,12 +2,12 @@ import datetime
 import json
 
 import src.record
-import src.service.apihandler
-import src.service.routeset
+import src.server.apihandler
+import src.server.routeset
 
 
-@src.service.routeset.bind('/api/v1/echo')
-class Echo(src.service.apihandler.APIHandler):
+@src.server.routeset.bind('/api/v1/echo')
+class Echo(src.server.apihandler.APIHandler):
     messages = src.record.get('messages', [])
 
     def get(self):
